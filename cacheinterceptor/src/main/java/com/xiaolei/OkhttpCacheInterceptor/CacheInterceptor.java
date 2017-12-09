@@ -69,6 +69,7 @@ public class CacheInterceptor implements Interceptor
                 }
             } catch (Exception e)
             {
+                e.printStackTrace();
                 Response response = getCacheResponse(request, oldnow); // 发生异常了，我这里就开始去缓存，但是有可能没有缓存，那么久需要丢给下一轮处理了
                 if (response == null)
                 {
