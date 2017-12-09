@@ -1,9 +1,7 @@
 package com.xiaolei.OkhttpCacheInterceptor.Log;
 
 
-import android.util.Config;
-
-import com.xiaolei.OkhttpCacheInterceptor.BuildConfig;
+import com.xiaolei.OkhttpCacheInterceptor.Config.Config;
 
 /**
  * Created by xiaolei on 2017/3/9.
@@ -13,7 +11,7 @@ public class Log
 {
     public static void i(String tag,Object object)
     {
-        if (BuildConfig.DEBUG) android.util.Log.i(tag, "" + object);
+        if (Config.DEBUG) android.util.Log.i(tag, "" + object);
     }
 
     public static void e(String tag,Object object)
