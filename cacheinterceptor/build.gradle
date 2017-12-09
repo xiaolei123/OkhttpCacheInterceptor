@@ -17,7 +17,7 @@ publish {
     userOrg = 'kavipyouxiang'// 用户所在组织,好像是用
     groupId = 'com.xiaolei'// 包名
     artifactId = 'OkhttpCacheInterceptor'// library的名字
-    version = '1.0.0'// 版本
+    version = '1.0.1'// 版本
     description = 'OKHTTP3 Cache Interceptor,suppert GET POST and More...'
     website = "https://github.com/xiaolei123/OkhttpCacheInterceptor"
 }
