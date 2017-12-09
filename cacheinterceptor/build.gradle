@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        minSdkVersion 15
+    }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}
+
+publish {
+    userOrg = 'kavipyouxiang'// 用户所在组织,好像是用
+    groupId = 'com.xiaolei'// 包名
+    artifactId = 'cacheInterceptor'// library的名字
+    version = '1.0.0'// 版本
+    description = 'OKHTTP3 Cache Interceptor,suppert GET POST and More...'
+    website = "https://github.com/xiaolei123/CacheInterceptor"
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    provided 'com.squareup.okhttp3:okhttp:3.9.1'
+}
