@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 
 public interface Net
 {
-    @Headers(CacheHeaders.PRIVATE)
+    @Headers(CacheHeaders.NORMAL)
     @FormUrlEncoded
     @POST("geocoding")
     public Call<DataBean> getIndex(@Field("a") String a);

@@ -10,6 +10,8 @@ import com.xiaolei.Example.Net.DataBean;
 import com.xiaolei.Example.Net.Net;
 import com.xiaolei.Example.Net.RetrofitBase;
 
+import java.util.Date;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,6 +21,7 @@ public class MainActivity extends Activity
     TextView textview;
     Button button;
     RetrofitBase retrofitBase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -42,7 +45,7 @@ public class MainActivity extends Activity
 
     private void doSomething()
     {
-        Net net  = retrofitBase.getRetrofit().create(Net.class);
+        Net net = retrofitBase.getRetrofit().create(Net.class);
         Call<DataBean> call = net.getIndex("苏州市");
         call.enqueue(new Callback<DataBean>()
         {
@@ -50,8 +53,10 @@ public class MainActivity extends Activity
             public void onResponse(Call<DataBean> call, Response<DataBean> response)
             {
                 DataBean data = response.body();
-                textview.setText(data.toString());
+                Date date = new Date();
+                textview.setText(date.getMinutes() + " " + date.getSeconds() + ":\n" + data + "");
             }
+
             @Override
             public void onFailure(Call<DataBean> call, Throwable t)
             {

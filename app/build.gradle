@@ -20,10 +20,10 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.squareup.okhttp3:okhttp:3.9.1'
-    implementation project(':cacheinterceptor')
+    // implementation project(':cacheinterceptor')
 
 
-
+    compile 'com.xiaolei:OkhttpCacheInterceptor:1.0.0'
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.google.code.gson:gson:2.8.0'
