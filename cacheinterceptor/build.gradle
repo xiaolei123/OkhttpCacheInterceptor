@@ -12,7 +12,23 @@ android {
         checkReleaseBuilds false
     }
 }
-
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+    tasks.withType(Javadoc) {
+        options {
+            encoding "UTF-8"
+            charSet 'UTF-8'
+            links "http://docs.oracle.com/javase/7/docs/api"
+            failOnError false
+        }
+    }
+}
 publish {
     userOrg = 'kavipyouxiang'// 用户所在组织,好像是用
     groupId = 'com.xiaolei'// 包名
