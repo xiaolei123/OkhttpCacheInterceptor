@@ -100,7 +100,7 @@ public class CacheInterceptor implements Interceptor
                 .code(200)
                 .body(ResponseBody.create(null, cacheStr))
                 .request(request)
-                .message("OK")
+                .message(CacheType.DISK_CACHE)
                 .protocol(Protocol.HTTP_1_0)
                 .build();
         long useTime = System.currentTimeMillis() - oldNow;
