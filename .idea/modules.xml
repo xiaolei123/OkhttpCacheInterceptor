@@ -3,11 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/OkhttpCacheInterceptor.iml" filepath="$PROJECT_DIR$/.idea/OkhttpCacheInterceptor.iml" />
-      <module fileurl="file://D:\AndroidProjects\OkhttpCacheInterceptor\RetrofitCcheInterceptor.iml" filepath="D:\AndroidProjects\OkhttpCacheInterceptor\RetrofitCcheInterceptor.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\AndroidProjects\OkhttpCacheInterceptor\app\app.iml" filepath="D:\AndroidProjects\OkhttpCacheInterceptor\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cacheinterceptor/cacheinterceptor.iml" filepath="$PROJECT_DIR$/cacheinterceptor/cacheinterceptor.iml" />
-      <module fileurl="file://D:\AndroidProjects\OkhttpCacheInterceptor\cacheinterceptor\cacheinterceptor.iml" filepath="D:\AndroidProjects\OkhttpCacheInterceptor\cacheinterceptor\cacheinterceptor.iml" />
     </modules>
   </component>
 </project>

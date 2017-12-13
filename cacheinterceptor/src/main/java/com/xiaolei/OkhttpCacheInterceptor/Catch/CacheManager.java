@@ -5,6 +5,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
 import com.xiaolei.OkhttpCacheInterceptor.Log.Log;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,6 +14,8 @@ import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 /**
@@ -21,6 +24,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class CacheManager
 {
+    private ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+
     public static final String TAG = "CacheManager";
 
     //max cache size 10mb
@@ -47,6 +52,19 @@ public class CacheManager
             }
         }
         return mCacheManager;
+    }
+
+    /**
+     * Closes the cache and deletes all of its stored values. This will delete
+     * all files in the cache directory including files that weren't created by
+     * the cache.
+     */
+    public void delete() throws Exception
+    {
+        if (mDiskLruCache != null)
+        {
+            mDiskLruCache.delete();
+        }
     }
 
     private CacheManager(Context context)
@@ -76,7 +94,8 @@ public class CacheManager
      */
     public void putCache(String key, String value)
     {
-        if (mDiskLruCache == null) return;
+        if (mDiskLruCache == null)
+            return;
         OutputStream os = null;
         try
         {
@@ -109,14 +128,14 @@ public class CacheManager
      */
     public void setCache(final String key, final String value)
     {
-        new Thread()
+        cachedThreadPool.submit(new Runnable()
         {
             @Override
             public void run()
             {
                 putCache(key, value);
             }
-        }.start();
+        });
     }
 
     /**
@@ -180,7 +199,7 @@ public class CacheManager
      */
     public void getCache(final String key, final CacheCallback callback)
     {
-        new Thread()
+        cachedThreadPool.submit(new Runnable()
         {
             @Override
             public void run()
@@ -188,7 +207,7 @@ public class CacheManager
                 String cache = getCache(key);
                 callback.onGetCache(cache);
             }
-        }.start();
+        });
     }
 
     /**
