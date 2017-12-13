@@ -54,16 +54,13 @@ public class CacheManager
         return mCacheManager;
     }
 
-    /**
-     * Closes the cache and deletes all of its stored values. This will delete
-     * all files in the cache directory including files that weren't created by
-     * the cache.
-     */
-    public void delete() throws Exception
+    
+    public void delete(Context context) throws Exception
     {
+        File diskCacheDir = getDiskCacheDir(context, CACHE_DIR);
         if (mDiskLruCache != null)
         {
-            mDiskLruCache.delete();
+            DiskLruCache.deleteContents(diskCacheDir);
         }
     }
 
